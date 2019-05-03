@@ -1,6 +1,5 @@
 ---
 - hosts: webservers
-  become: true
   tasks:
   - name: Install httpd package
     apt: name=httpd state=latest
