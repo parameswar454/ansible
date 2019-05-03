@@ -1,0 +1,13 @@
+---
+- hosts: webservers
+  become: true
+  tasks:
+  - name: Install httpd package
+    apt: name=httpd state=latest
+  - name: Copy the httpd configuration file
+    copy: src=/home/ansible/httpd.final dest=/etc/httpd/conf/httpd.conf
+  - name: Copy index.html file
+    copy: src=/home/ansible/index.html dest=/var/www/html
+
+  - name: installing git
+    apt: name=git update_cache=yes state=present
